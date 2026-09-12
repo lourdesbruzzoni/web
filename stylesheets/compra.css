@@ -1,0 +1,165 @@
+/* Purchase Page Specific Styles */
+.compra-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem; /* Added top padding to account for fixed navbar */
+    gap: 4rem;
+}
+
+.compra-left {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main-product-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+.compra-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.compra-right h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.compra-right .author {
+    color: #666;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+}
+
+.purchase-action {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 3rem;
+}
+
+.qty-btn {
+    background: #fff;
+    border: none;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #1a1a1a;
+    transition: background 0.2s;
+    height: 100%;
+}
+
+.qty-btn:hover {
+    background: #f0f0f0;
+}
+
+#qty {
+    width: 3rem;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    font-size: 1.1rem;
+    font-family: inherit;
+    -moz-appearance: textfield;
+    height: 100%;
+}
+
+#qty::-webkit-outer-spin-button,
+#qty::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.buy-button {
+    background-color: #ff0000; /* Red like in the mock to stand out */
+    color: white;
+    border: none;
+    padding: 0 2.5rem;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+}
+
+.buy-button:hover {
+    background-color: #cc0000;
+}
+
+.product-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: #1a1a1a;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.product-info p {
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.product-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-info ul li {
+    color: #4a4a4a;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .compra-container {
+        flex-direction: column;
+        padding-top: 6rem;
+        gap: 2rem;
+    }
+    
+    .purchase-action {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .buy-button {
+        width: auto;
+        flex: 1;
+        margin-left: 1rem;
+    }
+}

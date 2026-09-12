@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Orígenes de los cómics Historias de la ventana.">
+    <title>Orígenes - Illustrated Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar scrolled" id="navbar" style="background-color: rgba(253, 251, 247, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <a href="index.html" class="nav-brand">Calendario 2027</a>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="origenes.html" class="nav-link">Orígenes</a>
+            <a href="sobre_mi.html" class="nav-link">Sobre mí</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="origenes-section">
+            <div class="origenes-header">
+                <h1>Historias de la ventana</h1>
+                <p>Todo comenzó mirando a través del cristal. Cada ventana es un mundo, una pequeña historia que ocurre mientras la vida pasa. Haz clic en las ventanas para descubrir los cómics originales.</p>
+            </div>
+
+            <div class="comic-grid" id="comicGrid">
+                <!-- Windows will be injected here via JS -->
+            </div>
+        </section>
+
+        <!-- Closing Section -->
+        <section class="page-section closing-section" style="background-color: #f5f3ef;">
+            <div class="closing-container">
+                <img src="public/images/mock_up.png" alt="Final Mockup" class="closing-img">
+                <div class="closing-content-right">
+                    <h2>¿Querés el tuyo?</h2>
+                    <div class="cta-wrapper">
+                        <button class="cta-button" onclick="toggleDropdown(event, this)">Lo quiero</button>
+                        <div class="cta-dropdown">
+                            <a href="https://www.grafica21.com/" target="_blank" rel="noopener noreferrer">Estoy en Argentina</a>
+                            <a href="https://wa.me/34603536305?text=Lo%20quiero!" target="_blank" rel="noopener noreferrer">Estoy en España</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Carousel -->
+    <div class="comic-modal" id="comicModal">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div class="modal-content">
+            <button class="carousel-nav" id="prevBtn" onclick="navigateCarousel(-1)">&#10094;</button>
+            <div class="carousel-image-container" id="carouselContainer">
+                <!-- Images injected via JS -->
+            </div>
+            <button class="carousel-nav" id="nextBtn" onclick="navigateCarousel(1)">&#10095;</button>
+        </div>
+        <div class="modal-title" id="modalTitle">Título</div>
+    </div>
+
+    <script>
+        // Dropdown toggle logic
+        function toggleDropdown(event, button) {
+            event.stopPropagation();
+            document.querySelectorAll('.cta-dropdown.show').forEach(dropdown => {
+                if (dropdown !== button.nextElementSibling && dropdown !== button.previousElementSibling) {
+                    dropdown.classList.remove('show');
+                }
+            });
+
+            const wrapper = button.parentElement;
+            const dropdown = wrapper.querySelector('.cta-dropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        window.addEventListener('click', (event) => {
+            if (!event.target.matches('.cta-button')) {
+                document.querySelectorAll('.cta-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            }
+        });
+
+        // Comic Data
+        const comicsData = [
+  {
+    "folder": "best time of the year",
+    "window": "public/images/Historias desde la ventana/best time of the year/ventana_navidad.png",
+    "panels": [
+      "public/images/Historias desde la ventana/best time of the year/1.jpg",
+      "public/images/Historias desde la ventana/best time of the year/2.jpg",
+      "public/images/Historias desde la ventana/best time of the year/3.jpg",
+      "public/images/Historias desde la ventana/best time of the year/4.jpg",
+      "public/images/Historias desde la ventana/best time of the year/5.jpg"
+    ]
+  },
+  {
+    "folder": "Bosque",
+    "window": "public/images/Historias desde la ventana/Bosque/ventana_bosque.png",
+    "panels": [
+      "public/images/Historias desde la ventana/Bosque/1.jpg",
+      "public/images/Historias desde la ventana/Bosque/2.jpg",
+      "public/images/Historias desde la ventana/Bosque/3.jpg",
+      "public/images/Historias desde la ventana/Bosque/4.jpg",
+      "public/images/Historias desde la ventana/Bosque/5.jpg"
+    ]
+  },
+  {
+    "folder": "campamento",
+    "window": "public/images/Historias desde la ventana/campamento/ventana_campamento.png",
+    "panels": [
+      "public/images/Historias desde la ventana/campamento/1.jpg",
+      "public/images/Historias desde la ventana/campamento/2.jpg",
+      "public/images/Historias desde la ventana/campamento/3.jpg",
+      "public/images/Historias desde la ventana/campamento/4.jpg",
+      "public/images/Historias desde la ventana/campamento/5.jpg"
+    ]
+  },
+  {
+    "folder": "Every breath you take",
+    "window": "public/images/Historias desde la ventana/Every breath you take/ventana_breath.png",
+    "panels": [
+      "public/images/Historias desde la ventana/Every breath you take/1.jpg",
+      "public/images/Historias desde la ventana/Every breath you take/2.jpg",
+      "public/images/Historias desde la ventana/Every breath you take/3.jpg",
+      "public/images/Historias desde la ventana/Every breath you take/4.jpg",
+      "public/images/Historias desde la ventana/Every breath you take/5.jpg"
+    ]
+  },
+  {
+    "folder": "lugares",
+    "window": "public/images/Historias desde la ventana/lugares/ventana_lugares.png",
+    "panels": [
+      "public/images/Historias desde la ventana/lugares/1.jpg",
+      "public/images/Historias desde la ventana/lugares/2.jpg",
+      "public/images/Historias desde la ventana/lugares/3.jpg",
+      "public/images/Historias desde la ventana/lugares/4.jpg",
+      "public/images/Historias desde la ventana/lugares/5.jpg"
+    ]
+  },
+  {
+    "folder": "momentos",
+    "window": "public/images/Historias desde la ventana/momentos/ventana_momentos.png",
+    "panels": [
+      "public/images/Historias desde la ventana/momentos/1.jpg",
+      "public/images/Historias desde la ventana/momentos/2.jpg",
+      "public/images/Historias desde la ventana/momentos/3.jpg",
+      "public/images/Historias desde la ventana/momentos/4.jpg",
+      "public/images/Historias desde la ventana/momentos/5.jpg"
+    ]
+  },
+  {
+    "folder": "perri",
+    "window": "public/images/Historias desde la ventana/perri/ventana_perri.png",
+    "panels": [
+      "public/images/Historias desde la ventana/perri/1.jpg",
+      "public/images/Historias desde la ventana/perri/2.jpg",
+      "public/images/Historias desde la ventana/perri/3.jpg",
+      "public/images/Historias desde la ventana/perri/4.jpg",
+      "public/images/Historias desde la ventana/perri/5.jpg"
+    ]
+  },
+  {
+    "folder": "Tiempo",
+    "window": "public/images/Historias desde la ventana/Tiempo/ventana_time.png",
+    "panels": [
+      "public/images/Historias desde la ventana/Tiempo/1.jpg",
+      "public/images/Historias desde la ventana/Tiempo/2.jpg",
+      "public/images/Historias desde la ventana/Tiempo/3.jpg",
+      "public/images/Historias desde la ventana/Tiempo/4.jpg",
+      "public/images/Historias desde la ventana/Tiempo/5.jpg"
+    ]
+  },
+  {
+    "folder": "viejo puchito",
+    "window": "public/images/Historias desde la ventana/viejo puchito/ventana_puchito.png",
+    "panels": [
+      "public/images/Historias desde la ventana/viejo puchito/1.jpg",
+      "public/images/Historias desde la ventana/viejo puchito/2.jpg",
+      "public/images/Historias desde la ventana/viejo puchito/3.jpg",
+      "public/images/Historias desde la ventana/viejo puchito/4.jpg",
+      "public/images/Historias desde la ventana/viejo puchito/5.jpg",
+      "public/images/Historias desde la ventana/viejo puchito/6.jpg",
+      "public/images/Historias desde la ventana/viejo puchito/7.jpg",
+      "public/images/Historias desde la ventana/viejo puchito/8.jpg",
+      "public/images/Historias desde la ventana/viejo puchito/9.jpg"
+    ]
+  }
+];
+
+        // Render Grid
+        const gridContainer = document.getElementById('comicGrid');
+        
+        comicsData.forEach((comic, index) => {
+            const container = document.createElement('div');
+            container.className = 'comic-window-container';
+            container.onclick = () => openModal(index);
+
+            const img = document.createElement('img');
+            img.src = comic.window;
+            img.className = 'comic-window';
+            img.alt = `Ventana de ${comic.folder}`;
+
+            const title = document.createElement('div');
+            title.className = 'comic-title';
+            // Capitalize first letter
+            title.innerText = comic.folder.charAt(0).toUpperCase() + comic.folder.slice(1);
+
+            container.appendChild(img);
+            container.appendChild(title);
+            gridContainer.appendChild(container);
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('comicModal');
+        const carouselContainer = document.getElementById('carouselContainer');
+        const modalTitle = document.getElementById('modalTitle');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentComicIndex = 0;
+        let currentPanelIndex = 0;
+
+        function openModal(comicIndex) {
+            currentComicIndex = comicIndex;
+            currentPanelIndex = 0;
+            const comic = comicsData[currentComicIndex];
+            
+            modalTitle.innerText = comic.folder.charAt(0).toUpperCase() + comic.folder.slice(1);
+            
+            // Generate image tags
+            carouselContainer.innerHTML = '';
+            
+            // Ya no invertimos el orden porque renombraste los archivos a 1.jpg, 2.jpg...
+            const panels = comic.panels;
+
+            panels.forEach((panelSrc, idx) => {
+                const img = document.createElement('img');
+                img.src = panelSrc;
+                img.className = 'carousel-image';
+                if (idx === 0) img.classList.add('active');
+                carouselContainer.appendChild(img);
+            });
+
+            updateButtons();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // prevent scrolling behind
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateCarousel(direction) {
+            const panels = carouselContainer.querySelectorAll('.carousel-image');
+            panels[currentPanelIndex].classList.remove('active');
+            
+            currentPanelIndex += direction;
+            
+            panels[currentPanelIndex].classList.add('active');
+            updateButtons();
+        }
+
+        function updateButtons() {
+            const panels = comicsData[currentComicIndex].panels;
+            prevBtn.disabled = currentPanelIndex === 0;
+            nextBtn.disabled = currentPanelIndex === panels.length - 1;
+        }
+
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+            if (e.key === 'ArrowRight' && modal.classList.contains('active') && !nextBtn.disabled) {
+                navigateCarousel(1);
+            }
+            if (e.key === 'ArrowLeft' && modal.classList.contains('active') && !prevBtn.disabled) {
+                navigateCarousel(-1);
+            }
+        });
+    </script>
+</body>
+</html>
