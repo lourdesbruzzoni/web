@@ -483,6 +483,9 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
         max-width: 100%;
         width: 100%;
         flex: none;
+        height: auto;
+        max-height: 60vh;
+        object-fit: cover;
     }
     
     .parallax-text {
