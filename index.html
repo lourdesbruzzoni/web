@@ -4,118 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Beautiful illustrated calendar.">
-    <title>Illustrated Calendar</title>
+    <title>Lourdes Bruzzoni</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="stylesheets/style.css">
+<link rel="icon" type="image/png" href="public/images/loguito/pava.png">
 </head>
 <body>
     <!-- Navbar -->
     <header class="navbar" id="navbar">
-        <a href="index.html" class="nav-brand">Calendario 2027</a>
+        <a href="index.html" class="nav-brand">Lourdes Bruzzoni</a>
         <nav class="nav-links">
             <a href="index.html" class="nav-link">Inicio</a>
-            <a href="origenes.html" class="nav-link">Orígenes</a>
+            <a href="origenes.html" class="nav-link">Historia</a>
             <a href="sobre_mi.html" class="nav-link">Sobre mí</a>
         </nav>
     </header>
 
     <!-- Floating Button (Hidden by default) -->
     <div class="floating-container floating-btn" id="floatingBtn">
-        <div class="cta-dropdown dropdown-up">
-            <a href="https://www.grafica21.com/" target="_blank" rel="noopener noreferrer">Estoy en Argentina</a>
-            <a href="compra.html">Estoy en España</a>
-        </div>
-        <button class="cta-button" onclick="toggleDropdown(event, this)">Lo quiero</button>
+        
+        <button class="cta-button" onclick="window.location.href='compra.html'">Lo quiero</button>
     </div>
 
     <main class="main-content">
         <!-- Hero Section -->
         <section class="page-section hero-section" id="hero">
-            <img src="public/images/mock_up2.png" alt="Calendar Mockup" class="background-img cover">
+            <img src="public/images/portada.avif" alt="Calendar Mockup" class="background-img cover">
             <div class="hero-content">
-                <h1>Calendario 2027</h1>
-                <p>Un año, una vida un recorrido. Caja negra</p>
+                <h1>CALENDARIO 2027</h1>
+                <p>Un año pintado a mano</p>
                 <div class="cta-wrapper">
-                    <button class="cta-button" onclick="toggleDropdown(event, this)">Lo quiero</button>
-                    <div class="cta-dropdown">
-                        <a href="https://www.grafica21.com/" target="_blank" rel="noopener noreferrer">Estoy en Argentina</a>
-                        <a href="compra.html">Estoy en España</a>
-                    </div>
+                    <button class="cta-button" onclick="window.location.href='compra.html'">Lo quiero</button>
+                    
                 </div>
             </div>
         </section>
 
         <!-- Months Sections with Parallax -->
-        <section class="parallax-section" style="background-image: url('public/images/month_1.jpeg');">
+        <section class="parallax-section" style="background-image: url('public/images/escritorio.avif');">
             <div class="parallax-overlay"></div>
-            <h2 class="parallax-text">Un objeto físico, decorativo y funcional</h2>
+            <h2 class="parallax-text">Una ilustración especial para cada mes</h2>
         </section>
         
-        <section class="parallax-section" style="background-image: url('public/images/month_2.jpeg');">
+        <section class="parallax-section" style="background-image: url('public/images/process_1 copia.avif');">
             <div class="parallax-overlay"></div>
-            <h2 class="parallax-text">Aportando belleza itinerante</h2>
+            <h2 class="parallax-text">Hecho a mano</h2>
         </section>
         
-        <section class="parallax-section" style="background-image: url('public/images/month_3.jpeg');">
+        <section class="parallax-section" style="background-image: url('public/images/escritorio_febrero.avif');">
             <div class="parallax-overlay"></div>
-            <h2 class="parallax-text">Salir un poco de la pantalla</h2>
-        </section>
+            <h2 class="parallax-text">con amor</h2>
+        </section>     
         
-        <section class="parallax-section" style="background-image: url('public/images/month_4.jpeg');">
-            <div class="parallax-overlay"></div>
-            <h2 class="parallax-text">Una imagen que inspire y dé optimismo</h2>
-        </section>
-        
-        <section class="parallax-section" style="background-image: url('public/images/month_5.jpeg');">
-            <div class="parallax-overlay"></div>
-            <h2 class="parallax-text">Llevar la belleza a las cosas cotidianas</h2>
-        </section>
-        
-        <section class="parallax-section" style="background-image: url('public/images/month_6.jpeg');">
-            <div class="parallax-overlay"></div>
-            <h2 class="parallax-text">Imágenes que te transporten</h2>
-        </section>
-
-        <!-- Full Page Artwork -->
-        <section class="page-section">
-            <img src="public/images/full_page.jpeg" alt="Full Page Artwork" class="showcase-img">
-        </section>
-
-        <!-- Process Section -->
-        <section class="process-section">
-            <h2>El Arte de lo Cotidiano</h2>
-            <p class="process-desc">Cada imagen surge de un proyecto personal muy cuidado en su atmósfera y paleta de color. Creo fundamental rodearnos de herramientas hechas a mano que nos resulten bellas y nos inspiren además de ser útiles.</p>
-            
-            <div class="process-grid">
-                <img src="public/images/process_1.jpg" alt="Proceso de ilustración 1" class="process-item">
-                <img src="public/images/process_3.jpg" alt="Proceso de ilustración 3" class="process-item">
-                <img src="public/images/process_2.jpg" alt="Proceso de ilustración 2" class="process-item">
-            </div>
-
-            <video src="public/videos/video.MOV" class="process-video" autoplay muted loop playsinline></video>
-        </section>
-
         <!-- Closing Section -->
         <section class="page-section closing-section">
             <div class="closing-container">
-                <img src="public/images/mock_up.png" alt="Final Mockup" class="closing-img">
+                <img src="public/images/portada_sucia.avif" alt="Final Mockup" class="closing-img">
                 <div class="closing-content-right">
                     <h2>¿Querés el tuyo?</h2>
                     <div class="cta-wrapper">
-                        <button class="cta-button" onclick="toggleDropdown(event, this)">Lo quiero</button>
-                        <div class="cta-dropdown">
-                            <a href="https://www.grafica21.com/" target="_blank" rel="noopener noreferrer">Estoy en Argentina</a>
-                            <a href="compra.html">Estoy en España</a>
-                        </div>
+                        <button class="cta-button" onclick="window.location.href='compra.html'">Lo quiero</button>
+                        
                     </div>
                 </div>
             </div>
         </section>
     </main>
+   
+
+        <!-- Process Section -->
+        <section class="process-section">
+            <h2>El Arte de lo Cotidiano</h2>
+            <p class="process-desc">Cada imagen está pintada a mano con gouache. Son escenas cotidianas, cada una con su propia atmósfera y paleta de color. </p>
+
+            <video src="public/videos/video.mp4" class="process-video" autoplay muted loop playsinline></video>
+        </section>
+
+
 
     <script>
+
+        function proximamente(event) {
+            if(event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            alert("¡Próximamente! Entérate de las novedades de lanzamiento en mi página de Instagram");
+            window.location.href = "https://www.instagram.com/loubruzzoni";
+        }
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -164,3 +143,7 @@
     </script>
 </body>
 </html>
+
+
+
+

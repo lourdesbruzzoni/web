@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sobre la ilustradora del calendario.">
-    <title>Sobre Mí - Illustrated Calendar</title>
+    <title>Sobre mí - Lourdes Bruzzoni</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="stylesheets/style.css">
+<link rel="icon" type="image/png" href="public/images/loguito/pava.png">
 </head>
 <body>
     <!-- Navbar -->
     <header class="navbar" id="navbar">
-        <a href="index.html" class="nav-brand">Calendario 2027</a>
+        <a href="index.html" class="nav-brand">Lourdes Bruzzoni</a>
         <nav class="nav-links">
             <a href="index.html" class="nav-link">Inicio</a>
-            <a href="origenes.html" class="nav-link">Orígenes</a>
+            <a href="origenes.html" class="nav-link">Historia</a>
             <a href="sobre_mi.html" class="nav-link">Sobre mí</a>
         </nav>
     </header>
@@ -24,27 +25,23 @@
     <main class="main-content">
         <!-- Sobre Mi Section -->
         <section class="sobre-mi-section">
-            <img src="public/images/sobre_mi.jpg" alt="Foto de la Ilustradora" class="sobre-mi-img">
+            <img src="public/images/sobre_mi.avif" alt="Foto de la Ilustradora" class="sobre-mi-img">
             <div class="sobre-mi-text">
                 <h1>Detrás del Calendario</h1>
-                <p>Soy una consumidora frecuente de este tipo de productos y con el tiempo fui definiendo mis necesidades al respecto. Como sé que tiene un peso visual importante en el espacio, me encargué de que cada mes se acompañe de una imagen que inspire y que dé optimismo.</p>
-                <p>Soy ilustradora profesional. Me importa llevar la belleza a las cosas cotidianas y creo fundamental rodearnos de herramientas que nos resulten bellas y nos inspiren además de ser útiles.</p>
-                <p>Conviviendo con mi pareja nos dimos cuenta de que el calendario de papel nos ayudaba a estar al tanto de las actividades comunes además de las propias. Como la estética es tan importante como la funcionalidad, las imágenes creadas y elegidas están muy cuidadas en cuanto a su clima, atmósfera y paleta de color. Me importa que esa imagen te traslade, aunque sea por unos segundos.</p>
-            </div>
+                <p>Soy Lourdes, ilustradora argentina viviendo en Barcelona. Soy arquitecta, pero desde siempre me gustó dibujar, el camino profesional me llevó por el diseño de estampados y a trabajar con marcas de moda. Hoy en día estoy empezando a desarrollar mis propios productos. Suelo trabajar con acuarelas, gouache, lápices y algunas herramientas digitales.</p>
+                <p>Me gusta tener siempre algún proyecto personal en marcha. El de el último año fue "Historias desde la ventana", y este calendario se desprende de ahí. Si quieren conocer más sobre este pueden visitar la pestaña "Historia".</p>
+                </div>
         </section>
 
         <!-- Closing Section -->
         <section class="page-section closing-section" style="background-color: #f5f3ef;">
             <div class="closing-container">
-                <img src="public/images/mock_up.png" alt="Final Mockup" class="closing-img">
+                <img src="public/images/portada_sucia.avif" alt="Final Mockup" class="closing-img">
                 <div class="closing-content-right">
                     <h2>¿Querés el tuyo?</h2>
                     <div class="cta-wrapper">
-                        <button class="cta-button" onclick="toggleDropdown(event, this)">Lo quiero</button>
-                        <div class="cta-dropdown">
-                            <a href="https://www.grafica21.com/" target="_blank" rel="noopener noreferrer">Estoy en Argentina</a>
-                            <a href="https://wa.me/34603536305?text=Lo%20quiero!" target="_blank" rel="noopener noreferrer">Estoy en España</a>
-                        </div>
+                        <button class="cta-button" onclick="window.location.href='compra.html'">Lo quiero</button>
+                        
                     </div>
                 </div>
             </div>
@@ -52,6 +49,16 @@
     </main>
 
     <script>
+
+        function proximamente(event) {
+            if(event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            alert("¡Próximamente! Entérate de las novedades de lanzamiento en mi página de Instagram");
+            window.location.href = "https://www.instagram.com/loubruzzoni";
+        }
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {

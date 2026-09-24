@@ -21,8 +21,112 @@
     max-width: 600px;
     height: auto;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-radius: 4px;
+    border-radius: 12px;
     object-fit: contain;
+}
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.carousel-track-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: none; /* Override main-product-img shadow inside carousel */
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(246, 245, 243, 0.4);
+    color: var(--color-terracota);
+    border: none;
+    font-size: 1.3rem;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+    background: rgba(246, 245, 243, 0.8);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    background: transparent;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid var(--color-terracota);
+    cursor: pointer;
+    padding: 0;
+}
+
+.carousel-indicator.current-indicator {
+    background: var(--color-terracota);
 }
 
 .compra-right {
@@ -35,7 +139,7 @@
 .compra-right h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: #1a1a1a;
+    
 }
 
 .compra-right .author {
@@ -48,7 +152,7 @@
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 2rem;
-    color: #1a1a1a;
+    
 }
 
 .purchase-action {
@@ -61,8 +165,8 @@
 .quantity-selector {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid var(--color-celeste);
+    border-radius: 12px;
     overflow: hidden;
     height: 3rem;
 }
@@ -73,21 +177,21 @@
     padding: 0 1rem;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #1a1a1a;
+    
     transition: background 0.2s;
     height: 100%;
 }
 
 .qty-btn:hover {
-    background: #f0f0f0;
+    background: var(--color-rosa);
 }
 
 #qty {
     width: 3rem;
     text-align: center;
     border: none;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    border-left: 1px solid var(--color-celeste);
+    border-right: 1px solid var(--color-celeste);
     font-size: 1.1rem;
     font-family: inherit;
     -moz-appearance: textfield;
@@ -101,34 +205,44 @@
 }
 
 .buy-button {
-    background-color: #ff0000; /* Red like in the mock to stand out */
-    color: white;
+    background-color: var(--color-terracota);
+    color: var(--bg-blanco-sucio);
     border: none;
-    padding: 0 2.5rem;
-    height: 3rem;
-    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    height: auto;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: background-color 0.2s;
-    border-radius: 4px;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
 }
 
 .buy-button:hover {
-    background-color: #cc0000;
+    background-color: transparent;
+    color: var(--color-terracota);
+    border: 1px solid var(--color-terracota);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
+
 
 .product-info h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     margin-top: 2rem;
-    color: #1a1a1a;
+    
     border-bottom: 1px solid #eee;
     padding-bottom: 0.5rem;
 }
 
 .product-info p {
-    color: #4a4a4a;
+    color: #76726a;
     line-height: 1.6;
     margin-bottom: 1rem;
 }
@@ -139,7 +253,7 @@
 }
 
 .product-info ul li {
-    color: #4a4a4a;
+    color: #76726a;
     margin-bottom: 0.5rem;
     line-height: 1.6;
 }
@@ -147,8 +261,23 @@
 @media (max-width: 768px) {
     .compra-container {
         flex-direction: column;
-        padding-top: 6rem;
-        gap: 2rem;
+        padding: 6rem 1rem 3rem;
+        gap: 0;
+    }
+    
+    .compra-left {
+        width: 100%;
+        margin-bottom: 2.5rem;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .compra-left::-webkit-scrollbar {
+        display: none;
+    }
+
+    .compra-right {
+        width: 100%;
     }
     
     .purchase-action {
@@ -163,3 +292,127 @@
         margin-left: 1rem;
     }
 }
+
+/* Otros Productos Section */
+.otros-productos-section {
+    max-width: 1200px;
+    margin: 4rem auto 6rem;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--color-terracota);
+    margin-bottom: 3rem;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.producto-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    background-color: var(--bg-blanco-sucio);
+}
+
+.card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.card-img.back {
+    opacity: 0;
+}
+
+.card-image-wrapper:hover .card-img.front {
+    opacity: 0;
+}
+
+.card-image-wrapper:hover .card-img.back {
+    opacity: 1;
+}
+
+.producto-titulo {
+    font-size: 1.5rem;
+    color: var(--color-terracota);
+    margin-bottom: 1rem;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+}
+
+.producto-card .cta-button {
+    font-size: 0.9rem;
+    padding: 0.8rem 2rem;
+}
+
+.postcard-carousel {
+    aspect-ratio: 1;
+    background-color: var(--bg-blanco-sucio);
+}
+
+.postcard-carousel .carousel-track-container,
+.postcard-carousel .carousel-track,
+.postcard-carousel .carousel-slide {
+    height: 100%;
+}
+
+.postcard-carousel .carousel-slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.producto-titulo {
+    margin-top: 1.5rem;
+}
+
+.producto-desc {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    width: 100%;
+}
+
+.producto-desc h4 {
+    font-size: 1.1rem;
+    color: var(--color-terracota);
+    margin-bottom: 0.5rem;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+}
+
+.producto-desc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.producto-desc li {
+    font-size: 1rem;
+    color: #76726a;
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+}
+

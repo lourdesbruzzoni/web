@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Comprar Calendario 2027">
-    <title>Comprar Calendario</title>
+    <title>Tienda - Lourdes Bruzzoni</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/compra.css">
+<link rel="icon" type="image/png" href="public/images/loguito/pava.png">
 </head>
 <body>
     <!-- Navbar -->
     <header class="navbar" id="navbar">
-        <a href="index.html" class="nav-brand">Calendario 2027</a>
+        <a href="index.html" class="nav-brand">Lourdes Bruzzoni</a>
         <nav class="nav-links">
             <a href="index.html" class="nav-link">Inicio</a>
-            <a href="origenes.html" class="nav-link">Orígenes</a>
+            <a href="origenes.html" class="nav-link">Historia</a>
             <a href="sobre_mi.html" class="nav-link">Sobre mí</a>
         </nav>
     </header>
@@ -26,15 +27,42 @@
         <div class="compra-container">
             <!-- Left: Product Photos -->
             <div class="compra-left">
-                <img src="public/images/mock_up.png" alt="Calendario 2027" class="main-product-img">
+                <div class="carousel">
+                    <button class="carousel-btn prev">&#10094;</button>
+                    <div class="carousel-track-container">
+                        <ul class="carousel-track">
+                            <li class="carousel-slide current-slide">
+                                <img src="public/images/carrousel_1.avif" alt="Calendario 1" class="main-product-img">
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="public/images/carrousel_2.avif" alt="Calendario 2" class="main-product-img">
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="public/images/carrousel_3.avif" alt="Calendario 3" class="main-product-img">
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="public/images/carrousel_4.avif" alt="Calendario 4" class="main-product-img">
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="public/images/carrousel_5.avif" alt="Calendario 5" class="main-product-img">
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="carousel-btn next">&#10095;</button>
+                    
+                    <div class="carousel-nav">
+                        <button class="carousel-indicator current-indicator"></button>
+                        <button class="carousel-indicator"></button>
+                        <button class="carousel-indicator"></button>
+                        <button class="carousel-indicator"></button>
+                        <button class="carousel-indicator"></button>
+                    </div>
+                </div>
             </div>
 
             <!-- Right: Details & Purchase -->
             <div class="compra-right">
-                <h1>Calendario 2027 de Pared</h1>
-                <p class="author">Por: Lourdes</p>
-                
-                <div class="price">€ 25.00</div>
+                <h1>Calendario 2027</h1>
 
                 <div class="purchase-action">
                     <div class="quantity-selector">
@@ -42,26 +70,144 @@
                         <input type="number" id="qty" value="1" min="1" readonly>
                         <button class="qty-btn" onclick="updateQty(1)">+</button>
                     </div>
-                    <button class="buy-button" onclick="buyWhatsapp()">COMPRAR</button>
+                    <button class="buy-button" onclick="proximamente(event)">COMPRAR</button>
                 </div>
 
                 <div class="product-info">
                     <h3>Descripción</h3>
-                    <p>Organiza tu mes. </p>
+                    <p>Un calendario hecho para quedarse en un lugar especial de tu casa, con una ilustración distinta cada mes. Cada lámina está pintada a mano, con su propia atmósfera y su propia paleta. Doce meses, doce momentos distintos, en el mismo lugar, para organizar todo tu 2027.</p>
                     
                     <h3>Características</h3>
                     <ul>
-                        <li><strong>Formato:</strong> 30 x 40 cm</li>
-                        <li><strong>Encuadernación:</strong> Anillado</li>
+                        <li><strong>Formato:</strong> DIN A3 (29,7 x 42 cm)</li>
+                        <li><strong>Encuadernación:</strong> Vertical, anillado arriba</li>
                         <li><strong>Interior:</strong> 12 páginas</li>
-                        <li><strong>Papel:</strong> Mate de 250 g</li>
+                        <li><strong>Papel:</strong> Mate 250g</li>
                     </ul>
                 </div>
             </div>
         </div>
+
+        <section class="otros-productos-section">
+            <h2 class="section-title">Otros Productos</h2>
+            <div class="productos-grid">
+                <div class="producto-card">
+                    <div class="carousel postcard-carousel">
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <div class="carousel-track-container">
+                            <ul class="carousel-track">
+                                <li class="carousel-slide current-slide">
+                                    <img src="public/images/postcard_1.avif" alt="Postal Lector 1" class="main-product-img">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="public/images/postcard_1b.avif" alt="Postal Lector 2" class="main-product-img">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="public/images/postcard_back.avif" alt="Postal Dorso" class="main-product-img">
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <div class="carousel-nav">
+                            <button class="carousel-indicator current-indicator"></button>
+                            <button class="carousel-indicator"></button>
+                            <button class="carousel-indicator"></button>
+                        </div>
+                    </div>
+                    <h3 class="producto-titulo">Postal Lector</h3>
+<div class="producto-desc">
+    <h4>Características</h4>
+    <ul>
+        <li><strong>Formato:</strong> DIN A6 (10,5 x 14,8 cm)</li>
+        <li><strong>Papel:</strong> Impresión fotográfica mate 400g</li>
+    </ul>
+</div>
+
+                    <button class="cta-button" onclick="proximamente(event)">Lo quiero</button>
+                </div>
+                <div class="producto-card">
+                    <div class="carousel postcard-carousel">
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <div class="carousel-track-container">
+                            <ul class="carousel-track">
+                                <li class="carousel-slide current-slide">
+                                    <img src="public/images/postcard_2.avif" alt="Postal Navidad 1" class="main-product-img">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="public/images/postcard_2b.avif" alt="Postal Navidad 2" class="main-product-img">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="public/images/postcard_back.avif" alt="Postal Dorso" class="main-product-img">
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <div class="carousel-nav">
+                            <button class="carousel-indicator current-indicator"></button>
+                            <button class="carousel-indicator"></button>
+                            <button class="carousel-indicator"></button>
+                        </div>
+                    </div>
+                    <h3 class="producto-titulo">Postal Navidad</h3>
+<div class="producto-desc">
+    <h4>Características</h4>
+    <ul>
+        <li><strong>Formato:</strong> DIN A6 (10,5 x 14,8 cm)</li>
+        <li><strong>Papel:</strong> Impresión fotográfica mate 400g</li>
+    </ul>
+</div>
+
+                    <button class="cta-button" onclick="proximamente(event)">Lo quiero</button>
+                </div>
+                <div class="producto-card">
+                    <div class="carousel postcard-carousel">
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <div class="carousel-track-container">
+                            <ul class="carousel-track">
+                                <li class="carousel-slide current-slide">
+                                    <img src="public/images/postcard_3.avif" alt="Postal Cafecito 1" class="main-product-img">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="public/images/postcard_3b.avif" alt="Postal Cafecito 2" class="main-product-img">
+                                </li>
+                                <li class="carousel-slide">
+                                    <img src="public/images/postcard_back.avif" alt="Postal Dorso" class="main-product-img">
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <div class="carousel-nav">
+                            <button class="carousel-indicator current-indicator"></button>
+                            <button class="carousel-indicator"></button>
+                            <button class="carousel-indicator"></button>
+                        </div>
+                    </div>
+                    <h3 class="producto-titulo">Postal Cafecito</h3>
+<div class="producto-desc">
+    <h4>Características</h4>
+    <ul>
+        <li><strong>Formato:</strong> DIN A6 (10,5 x 14,8 cm)</li>
+        <li><strong>Papel:</strong> Impresión fotográfica mate 400g</li>
+    </ul>
+</div>
+
+                    <button class="cta-button" onclick="proximamente(event)">Lo quiero</button>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script>
+
+        function proximamente(event) {
+            if(event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            alert("¡Próximamente! Entérate de las novedades de lanzamiento en mi página de Instagram");
+            window.location.href = "https://www.instagram.com/loubruzzoni";
+        }
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -94,6 +240,68 @@
             const url = `https://wa.me/34603536305?text=${encodedMessage}`;
             window.open(url, '_blank');
         }
+
+        function buyPostcard(name) {
+            const message = `¡Hola Lourdes! Me gustaría comprar la postal "${name}".`;
+            const encodedMessage = encodeURIComponent(message);
+            const url = `https://wa.me/34603536305?text=${encodedMessage}`;
+            window.open(url, '_blank');
+        }
+
+        // Carousel Logic
+        const carousels = document.querySelectorAll('.carousel');
+        
+        carousels.forEach(carousel => {
+            let slideIndex = 0;
+            const track = carousel.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const dots = Array.from(carousel.querySelectorAll('.carousel-indicator'));
+            const prevBtn = carousel.querySelector('.carousel-btn.prev');
+            const nextBtn = carousel.querySelector('.carousel-btn.next');
+
+            function updateCarousel() {
+                slides.forEach((slide, index) => {
+                    slide.classList.remove('current-slide');
+                    if(dots[index]) dots[index].classList.remove('current-indicator');
+                    if (index === slideIndex) {
+                        slide.classList.add('current-slide');
+                        if(dots[index]) dots[index].classList.add('current-indicator');
+                    }
+                });
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                track.style.transform = 'translateX(-' + (slideWidth * slideIndex) + 'px)';
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    slideIndex--;
+                    if (slideIndex < 0) slideIndex = slides.length - 1;
+                    updateCarousel();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    slideIndex++;
+                    if (slideIndex >= slides.length) slideIndex = 0;
+                    updateCarousel();
+                });
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    slideIndex = index;
+                    updateCarousel();
+                });
+            });
+
+            // Handle window resize for this carousel
+            window.addEventListener('resize', updateCarousel);
+            
+            // Initial setup
+            setTimeout(updateCarousel, 100);
+        });
     </script>
 </body>
 </html>
+
