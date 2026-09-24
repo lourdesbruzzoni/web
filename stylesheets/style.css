@@ -544,7 +544,7 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
 .comic-title {
     margin-top: 1rem;
     font-size: 1.1rem;
-    color: var(--color-terracota);
+    color: #76726a;
     text-align: center;
     font-weight: 600;
 }
@@ -669,10 +669,13 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
     }
     
     .modal-close {
-    z-index: 100;
-        top: 1rem;
+        z-index: 9999 !important;
+        top: 2.5rem;
         right: 1.5rem;
         font-size: 2.5rem;
+        padding: 15px;
+        background-color: rgba(0,0,0,0.3);
+        border-radius: 50%;
     }
 
     .modal-title {
@@ -700,10 +703,16 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
     }
 }
 
-/* iOS Safari Parallax Fix */
+/* Universal Mobile Parallax Disable */
+@media (max-width: 768px) {
+    .parallax-section {
+        background-attachment: scroll !important;
+        background-position: center top !important;
+    }
+}
 @supports (-webkit-touch-callout: none) {
     .parallax-section {
-        background-attachment: scroll;
+        background-attachment: scroll !important;
     }
 }
 
