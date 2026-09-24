@@ -697,3 +697,10 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
         width: 100%;
     }
 }
+
+/* iOS Safari Parallax Fix */
+@supports (-webkit-touch-callout: none) {
+    .parallax-section {
+        background-attachment: scroll;
+    }
+}
