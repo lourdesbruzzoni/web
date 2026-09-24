@@ -573,6 +573,7 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
 }
 
 .modal-close {
+    z-index: 100;
     position: absolute;
     top: 2rem;
     right: 3rem;
@@ -668,6 +669,7 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
     }
     
     .modal-close {
+    z-index: 100;
         top: 1rem;
         right: 1.5rem;
         font-size: 2.5rem;
@@ -704,3 +706,4 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
         background-attachment: scroll;
     }
 }
+
