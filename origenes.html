@@ -1,22 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Orígenes de los cómics Historias de la ventana.">
-    <title>Historia - Lourdes Bruzzoni</title>
+    <title>Historias de la Ventana | Viñetas e Inspiración - Lourdes Bruzzoni</title>
+    <meta name="description" content="Descubre 'Historias de la ventana', la serie de viñetas ilustradas a mano que dieron origen al Calendario 2027 de Lourdes Bruzzoni.">
+    <link rel="canonical" href="https://lourdesbruzzoni.com/origenes.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:url" content="https://lourdesbruzzoni.com/origenes.html">
+    <meta property="og:title" content="Historias de la Ventana | Viñetas e Inspiración - Lourdes Bruzzoni">
+    <meta property="og:description" content="Descubre 'Historias de la ventana', la serie de viñetas ilustradas a mano que dieron origen al Calendario 2027 de Lourdes Bruzzoni.">
+    <meta property="og:image" content="https://lourdesbruzzoni.com/public/images/og_portada.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Historias de la Ventana | Viñetas e Inspiración - Lourdes Bruzzoni">
+    <meta name="twitter:description" content="Descubre 'Historias de la ventana', la serie de viñetas ilustradas a mano que dieron origen al Calendario 2027 de Lourdes Bruzzoni.">
+    <meta name="twitter:image" content="https://lourdesbruzzoni.com/public/images/og_portada.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <link rel="stylesheet" href="stylesheets/style.css">
 <link rel="icon" type="image/png" href="public/images/loguito/pava.png">
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://lourdesbruzzoni.com/origenes.html#webpage",
+      "url": "https://lourdesbruzzoni.com/origenes.html",
+      "name": "Historias de la Ventana | Viñetas e Inspiración - Lourdes Bruzzoni",
+      "description": "Descubre 'Historias de la ventana', la serie de viñetas ilustradas a mano que dieron origen al Calendario 2027 de Lourdes Bruzzoni.",
+      "author": {
+        "@type": "Person",
+        "@id": "https://lourdesbruzzoni.com/#author",
+        "name": "Lourdes Bruzzoni",
+        "url": "https://lourdesbruzzoni.com/sobre_mi.html"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Navbar -->
     <header class="navbar scrolled" id="navbar" style="background-color: rgba(253, 251, 247, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
         <a href="index.html" class="nav-brand">Lourdes Bruzzoni</a>
         <nav class="nav-links">
-            <a href="index.html" class="nav-link">Inicio</a>
+
+            <a href="compra.html" class="nav-link">Tienda</a>
             <a href="origenes.html" class="nav-link">Historia</a>
             <a href="sobre_mi.html" class="nav-link">Sobre mí</a>
         </nav>
@@ -37,7 +71,7 @@
         <!-- Closing Section -->
         <section class="page-section closing-section" style="background-color: #f5f3ef;">
             <div class="closing-container">
-                <img src="public/images/portada_sucia.avif" alt="Final Mockup" class="closing-img">
+                <img src="public/images/portada_sucia.avif" alt="Portada del Calendario 2027, ilustrado por Lourdes Bruzzoni" class="closing-img">
                 <div class="closing-content-right">
                     <h2>¿Querés el tuyo?</h2>
                     <div class="cta-wrapper">
@@ -213,7 +247,7 @@
             const img = document.createElement('img');
             img.src = comic.window;
             img.className = 'comic-window';
-            img.alt = `Ventana de ${comic.folder}`;
+            img.alt = `Ventana ilustrada: ${comic.folder} - Serie Historias de la ventana por Lourdes Bruzzoni`;
 
             const title = document.createElement('div');
             title.className = 'comic-title';
@@ -251,6 +285,7 @@
             panels.forEach((panelSrc, idx) => {
                 const img = document.createElement('img');
                 img.src = panelSrc;
+                img.alt = `Viñeta ${idx + 1} del cómic ${comic.folder} por Lourdes Bruzzoni`;
                 img.className = 'carousel-image';
                 if (idx === 0) img.classList.add('active');
                 carouselContainer.appendChild(img);

@@ -70,13 +70,14 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.4rem;
 }
 
 .nav-link {
     text-decoration: none;
     color: #76726a;
     font-size: 1rem;
+    white-space: nowrap;
     transition: color 0.3s ease;
 }
 
@@ -168,7 +169,7 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .parallax-text {
@@ -428,6 +429,14 @@ h1, h2, h3, h4, h5, h6, .nav-brand {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
     .page-section {
         min-height: auto;
         padding: 4rem 1rem;
