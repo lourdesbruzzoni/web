@@ -71,7 +71,12 @@
     }
     </script>
 </head>
-<body>
+<body class="has-topbar">
+    <!-- Barra Superior de Cuenta Regresiva -->
+    <aside class="countdown-topbar" id="topbarCountdown" aria-label="Aviso de lanzamiento">
+        <span class="topbar-text" id="tbMessage">✨ Lanzamiento oficial: 10 de noviembre —</span>
+        <span class="topbar-digits" id="tbDigits">--d --h --m --s</span>
+    </aside>
     <!-- Navbar -->
     <header class="navbar" id="navbar">
         <a href="index.html" class="nav-brand">Lourdes Bruzzoni</a>
@@ -155,6 +160,52 @@
             alert("¡Próximamente! Entérate de las novedades de lanzamiento en mi página de Instagram");
             window.location.href = "https://www.instagram.com/loubruzzoni";
         }
+
+        // Cuenta regresiva: 10 de noviembre, 19:00 hs GMT+1
+        const LAUNCH_DATE = new Date('2026-11-10T19:00:00+01:00').getTime();
+
+        function syncNavbarWithTopbar() {
+            const topbar = document.getElementById('topbarCountdown');
+            const navbar = document.getElementById('navbar');
+            if (topbar && navbar) {
+                navbar.style.top = `${topbar.offsetHeight}px`;
+            }
+        }
+
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = LAUNCH_DATE - now;
+
+            const tbDigits = document.getElementById('tbDigits');
+            const tbMessage = document.getElementById('tbMessage');
+
+            if (diff <= 0) {
+                tbMessage.innerHTML = '🎉 ¡EL CALENDARIO 2027 YA ESTÁ DISPONIBLE!';
+                tbDigits.innerHTML = '<a href="compra.html" class="topbar-btn-launch">Ver Tienda</a>';
+                tbDigits.style.background = 'transparent';
+                tbDigits.style.border = 'none';
+                syncNavbarWithTopbar();
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            const sDays = String(days).padStart(2, '0');
+            const sHours = String(hours).padStart(2, '0');
+            const sMinutes = String(minutes).padStart(2, '0');
+            const sSeconds = String(seconds).padStart(2, '0');
+
+            tbDigits.textContent = `${sDays}d ${sHours}h ${sMinutes}m ${sSeconds}s`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        window.addEventListener('resize', syncNavbarWithTopbar);
+        window.addEventListener('load', syncNavbarWithTopbar);
+        setTimeout(syncNavbarWithTopbar, 50);
 
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
