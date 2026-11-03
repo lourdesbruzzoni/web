@@ -146,7 +146,7 @@
 <body class="has-topbar">
     <!-- Barra Superior de Cuenta Regresiva -->
     <aside class="countdown-topbar" id="topbarCountdown" aria-label="Aviso de lanzamiento">
-        <span class="topbar-text" id="tbMessage">LANZAMIENTO OFICIAL: 10/11 —</span>
+        <span class="topbar-text" id="tbMessage">✨ LANZAMIENTO OFICIAL: 10/11 —</span>
         <span class="topbar-digits" id="tbDigits">--d --h --m --s</span>
     </aside>
     <!-- Navbar -->
@@ -245,7 +245,7 @@
         const launchHourStr = launchMinutes > 0 
             ? `${launchHour}:${String(launchMinutes).padStart(2, '0')}h` 
             : `${launchHour}h`;
-        const launchMessageText = `LANZAMIENTO OFICIAL: ${launchDay}/${launchMonth} ${launchHourStr} —`;
+        const launchMessageText = `✨ LANZAMIENTO OFICIAL: ${launchDay}/${launchMonth} ${launchHourStr} —`;
 
         function syncNavbarWithTopbar() {
             const topbar = document.getElementById('topbarCountdown');
