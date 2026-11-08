@@ -71,11 +71,11 @@
         <!-- Closing Section -->
         <section class="page-section closing-section" style="background-color: #f5f3ef;">
             <div class="closing-container">
-                <img src="public/images/portada_sucia.avif" alt="Portada del Calendario 2027, ilustrado por Lourdes Bruzzoni" class="closing-img">
+                <img src="public/images/portada_sucia.avif" alt="Portada del Calendario 2027, ilustrado por Lourdes Bruzzoni" class="closing-img" loading="lazy" decoding="async">
                 <div class="closing-content-right">
                     <h2>¿Querés el tuyo?</h2>
                     <div class="cta-wrapper">
-                        <button class="cta-button" onclick="window.location.href='compra.html'">Lo quiero</button>
+                        <a href="compra.html" class="cta-button">Lo quiero</a>
                         
                     </div>
                 </div>
@@ -373,6 +373,8 @@
             img.src = comic.window;
             img.className = 'comic-window';
             img.alt = `Ventana ilustrada: ${comic.title || comic.folder} - Serie Historias de la ventana por Lourdes Bruzzoni`;
+            img.loading = index < 3 ? 'eager' : 'lazy';
+            img.decoding = 'async';
 
             const title = document.createElement('div');
             title.className = 'comic-title';
