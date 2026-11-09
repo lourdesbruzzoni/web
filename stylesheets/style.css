@@ -135,6 +135,7 @@ body.has-topbar .navbar {
 .nav-links {
     display: flex;
     gap: 1.4rem;
+    align-items: center;
 }
 
 .nav-link {
@@ -147,6 +148,27 @@ body.has-topbar .navbar {
 
 .nav-link:hover {
     color: #1a1a1a;
+}
+
+.nav-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #76726a;
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.2s ease;
+    padding: 2px;
+}
+
+.nav-social:hover {
+    color: var(--color-terracota);
+    transform: scale(1.12);
+}
+
+.nav-social-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
 /* Individual Sections */
@@ -511,6 +533,11 @@ body.has-topbar .navbar {
 
     .nav-links {
         gap: 1rem;
+    }
+
+    .nav-social-icon {
+        width: 18px;
+        height: 18px;
     }
 
     .page-section {
