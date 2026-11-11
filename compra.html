@@ -12,13 +12,15 @@
     <meta property="og:locale" content="es_ES">
     <meta property="og:url" content="https://lourdesbruzzoni.com/compra.html">
     <meta property="og:title" content="Comprar Calendario 2027 Ilustrado | Lourdes Bruzzoni">
-    <meta property="og:description" content="Calendario 2027 en formato DIN A3, con 12 láminas ilustradas a mano. Envíos a España y Argentina.">
+    <meta property="og:description" content="Calendario 2027 en formato DIN A3, con 13 páginas ilustradas a mano. Envíos a España y Argentina.">
     <meta property="og:image" content="https://lourdesbruzzoni.com/public/images/og_portada.jpg">
+    <meta property="product:price:amount" content="24.00">
+    <meta property="product:price:currency" content="EUR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Comprar Calendario 2027 Ilustrado | Lourdes Bruzzoni">
-    <meta name="twitter:description" content="Calendario 2027 en formato DIN A3, con 12 láminas ilustradas a mano. Envíos a España y Argentina.">
+    <meta name="twitter:description" content="Calendario 2027 en formato DIN A3, con 13 páginas ilustradas a mano. Envíos a España y Argentina.">
     <meta name="twitter:image" content="https://lourdesbruzzoni.com/public/images/og_portada.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +50,10 @@
         "@type": "Offer",
         "url": "https://lourdesbruzzoni.com/compra.html",
         "priceCurrency": "EUR",
-        "availability": "https://schema.org/PreOrder",
+        "price": "24.00",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
         "seller": {
           "@type": "Person",
           "@id": "https://lourdesbruzzoni.com/#author",
@@ -64,7 +69,6 @@
         <a href="index.html" class="nav-brand">Lourdes Bruzzoni</a>
         <nav class="nav-links">
 
-            <a href="compra.html" class="nav-link">Tienda</a>
             <a href="origenes.html" class="nav-link">Historia</a>
             <a href="sobre_mi.html" class="nav-link">Sobre mí</a>
             <a href="https://www.instagram.com/loubruzzoni" target="_blank" rel="noopener noreferrer" class="nav-social" aria-label="Instagram @loubruzzoni" title="Instagram">
@@ -117,6 +121,7 @@
             <!-- Right: Details & Purchase -->
             <div class="compra-right">
                 <h1>Calendario 2027</h1>
+                <div class="price">24,00 €</div>
 
                 <div class="purchase-action">
                     <div class="quantity-selector">
@@ -124,7 +129,7 @@
                         <input type="number" id="qty" value="1" min="1" readonly>
                         <button class="qty-btn" onclick="updateQty(1)">+</button>
                     </div>
-                    <button class="buy-button" onclick="proximamente(event)">COMPRAR</button>
+                    <button class="buy-button" onclick="openUpsellModal()">COMPRAR</button>
                 </div>
 
                 <div class="product-info">
@@ -135,7 +140,7 @@
                     <ul>
                         <li><strong>Formato:</strong> DIN A3 (29,7 x 42 cm)</li>
                         <li><strong>Encuadernación:</strong> Vertical, anillado arriba</li>
-                        <li><strong>Interior:</strong> 12 páginas</li>
+                        <li><strong>Interior:</strong> 13 páginas</li>
                         <li><strong>Papel:</strong> Mate 250g</li>
                     </ul>
                 </div>
@@ -169,15 +174,16 @@
                         </div>
                     </div>
                     <h3 class="producto-titulo">Postal Lector</h3>
-<div class="producto-desc">
-    <h4>Características</h4>
-    <ul>
-        <li><strong>Formato:</strong> DIN A6 (10,5 x 14,8 cm)</li>
-        <li><strong>Papel:</strong> Impresión fotográfica mate 400g</li>
-    </ul>
-</div>
+                    <div class="producto-price">3,00 €</div>
+                    <div class="producto-desc">
+                        <h4>Características</h4>
+                        <ul>
+                            <li><strong>Formato:</strong> DIN A6 (10,5 x 14,8 cm)</li>
+                            <li><strong>Papel:</strong> Impresión fotográfica mate 400g</li>
+                        </ul>
+                    </div>
 
-                    <button class="cta-button" onclick="proximamente(event)">Lo quiero</button>
+                    <button class="cta-button" onclick="buyPostcard('Postal Lector')">Comprar</button>
                 </div>
                 <div class="producto-card">
                     <div class="carousel postcard-carousel">
@@ -203,15 +209,16 @@
                         </div>
                     </div>
                     <h3 class="producto-titulo">Postal Navidad</h3>
-<div class="producto-desc">
-    <h4>Características</h4>
-    <ul>
-        <li><strong>Formato:</strong> DIN A6 (10,5 x 14,8 cm)</li>
-        <li><strong>Papel:</strong> Impresión fotográfica mate 400g</li>
-    </ul>
-</div>
+                    <div class="producto-price">3,00 €</div>
+                    <div class="producto-desc">
+                        <h4>Características</h4>
+                        <ul>
+                            <li><strong>Formato:</strong> DIN A6 (10,5 x 14,8 cm)</li>
+                            <li><strong>Papel:</strong> Impresión fotográfica mate 400g</li>
+                        </ul>
+                    </div>
 
-                    <button class="cta-button" onclick="proximamente(event)">Lo quiero</button>
+                    <button class="cta-button" onclick="buyPostcard('Postal Navidad')">Comprar</button>
                 </div>
                 <div class="producto-card">
                     <div class="carousel postcard-carousel">
@@ -237,31 +244,108 @@
                         </div>
                     </div>
                     <h3 class="producto-titulo">Postal Cafecito</h3>
-<div class="producto-desc">
-    <h4>Características</h4>
-    <ul>
-        <li><strong>Formato:</strong> DIN A6 (10,5 x 14,8 cm)</li>
-        <li><strong>Papel:</strong> Impresión fotográfica mate 400g</li>
-    </ul>
-</div>
+                    <div class="producto-price">3,00 €</div>
+                    <div class="producto-desc">
+                        <h4>Características</h4>
+                        <ul>
+                            <li><strong>Formato:</strong> DIN A6 (10,5 x 14,8 cm)</li>
+                            <li><strong>Papel:</strong> Impresión fotográfica mate 400g</li>
+                        </ul>
+                    </div>
 
-                    <button class="cta-button" onclick="proximamente(event)">Lo quiero</button>
+                    <button class="cta-button" onclick="buyPostcard('Postal Cafecito')">Comprar</button>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Upsell Modal: Agregar Postales -->
+    <div class="upsell-modal" id="upsellModal" aria-hidden="true">
+        <div class="upsell-modal-backdrop" onclick="closeUpsellModal()"></div>
+        <div class="upsell-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="upsellTitle">
+            <button type="button" class="upsell-modal-close" onclick="closeUpsellModal()" aria-label="Cerrar">&times;</button>
+            
+            <div class="upsell-modal-header">
+                <h2 id="upsellTitle" class="upsell-title">¿Querés agregar algún producto más?</h2>
+            </div>
+
+            <div class="upsell-products-list">
+                <!-- Item 1: Postal Lector -->
+                <div class="upsell-item">
+                    <img src="public/images/postcard_1.avif" alt="Postal Lector" class="upsell-item-img" title="Haz clic para ver en grande" onclick="openLightbox('public/images/postcard_1.avif', 'Postal Lector')">
+                    <div class="upsell-item-info">
+                        <h4 class="upsell-item-name">Postal Lector</h4>
+                        <span class="upsell-item-price">3,00 €</span>
+                    </div>
+                    <div class="upsell-qty-control">
+                        <button type="button" class="upsell-qty-btn" onclick="changePostcardQty('lector', -1)">−</button>
+                        <span id="qty-lector" class="upsell-qty-num">0</span>
+                        <button type="button" class="upsell-qty-btn" onclick="changePostcardQty('lector', 1)">+</button>
+                    </div>
+                </div>
+
+                <!-- Item 2: Postal Navidad -->
+                <div class="upsell-item">
+                    <img src="public/images/postcard_2.avif" alt="Postal Navidad" class="upsell-item-img" title="Haz clic para ver en grande" onclick="openLightbox('public/images/postcard_2.avif', 'Postal Navidad')">
+                    <div class="upsell-item-info">
+                        <h4 class="upsell-item-name">Postal Navidad</h4>
+                        <span class="upsell-item-price">3,00 €</span>
+                    </div>
+                    <div class="upsell-qty-control">
+                        <button type="button" class="upsell-qty-btn" onclick="changePostcardQty('navidad', -1)">−</button>
+                        <span id="qty-navidad" class="upsell-qty-num">0</span>
+                        <button type="button" class="upsell-qty-btn" onclick="changePostcardQty('navidad', 1)">+</button>
+                    </div>
+                </div>
+
+                <!-- Item 3: Postal Cafecito -->
+                <div class="upsell-item">
+                    <img src="public/images/postcard_3.avif" alt="Postal Cafecito" class="upsell-item-img" title="Haz clic para ver en grande" onclick="openLightbox('public/images/postcard_3.avif', 'Postal Cafecito')">
+                    <div class="upsell-item-info">
+                        <h4 class="upsell-item-name">Postal Cafecito</h4>
+                        <span class="upsell-item-price">3,00 €</span>
+                    </div>
+                    <div class="upsell-qty-control">
+                        <button type="button" class="upsell-qty-btn" onclick="changePostcardQty('cafecito', -1)">−</button>
+                        <span id="qty-cafecito" class="upsell-qty-num">0</span>
+                        <button type="button" class="upsell-qty-btn" onclick="changePostcardQty('cafecito', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="upsell-summary">
+                <div class="upsell-summary-row">
+                    <span id="summaryCalDesc">1× Calendario 2027</span>
+                    <span id="summaryCalPrice">24,00 €</span>
+                </div>
+                <div class="upsell-summary-row" id="summaryPostcardsRow" style="display: none;">
+                    <span id="summaryPostcardsDesc">0× Postales</span>
+                    <span id="summaryPostcardsPrice">0,00 €</span>
+                </div>
+                <div class="upsell-summary-total">
+                    <span>Total:</span>
+                    <strong id="summaryTotalPrice">24,00 €</strong>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="upsell-actions">
+                <button type="button" class="buy-button upsell-finalize-btn" onclick="finalizePurchase()">Finalizar compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal para ver postales en grande -->
+    <div class="image-lightbox" id="imageLightbox" aria-hidden="true" onclick="closeLightbox(event)">
+        <div class="lightbox-dialog" onclick="event.stopPropagation()">
+            <button type="button" class="lightbox-close" onclick="closeLightbox(event)" aria-label="Cerrar">&times;</button>
+            <img src="" alt="" id="lightboxImg" class="lightbox-img">
+            <p id="lightboxCaption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
     <script>
-
-        function proximamente(event) {
-            if(event) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            alert("¡Próximamente! Entérate de las novedades de lanzamiento en mi página de Instagram");
-            window.location.href = "https://www.instagram.com/loubruzzoni";
-        }
-
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -272,35 +356,159 @@
             }
         });
 
+        // Quantity Selector for Calendar
         function updateQty(change) {
             const input = document.getElementById('qty');
-            let current = parseInt(input.value);
+            let current = parseInt(input.value) || 1;
             if (current + change >= 1) {
                 input.value = current + change;
+                updateSummary();
             }
         }
 
-        function buyWhatsapp() {
-            const qty = document.getElementById('qty').value;
-            let message = '';
-            
-            if (parseInt(qty) === 1) {
-                message = `¡Hola Lourdes! Me gustaría comprar un calendario.`;
-            } else {
-                message = `¡Hola Lourdes! Me gustaría comprar ${qty} calendarios.`;
+        // Postcard counts for Upsell Modal
+        const postcardCounts = {
+            lector: 0,
+            navidad: 0,
+            cafecito: 0
+        };
+
+        function openUpsellModal() {
+            const modal = document.getElementById('upsellModal');
+            if (!modal) return;
+            updateSummary();
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeUpsellModal() {
+            const modal = document.getElementById('upsellModal');
+            if (!modal) return;
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function changePostcardQty(item, change) {
+            if (postcardCounts[item] !== undefined) {
+                const newVal = postcardCounts[item] + change;
+                if (newVal >= 0 && newVal <= 99) {
+                    postcardCounts[item] = newVal;
+                    const el = document.getElementById(`qty-${item}`);
+                    if (el) el.textContent = newVal;
+                    updateSummary();
+                }
             }
-            
+        }
+
+        function updateSummary() {
+            const calQty = parseInt(document.getElementById('qty').value) || 1;
+            const calTotal = calQty * 24;
+
+            const totalPostcards = postcardCounts.lector + postcardCounts.navidad + postcardCounts.cafecito;
+            const postcardsTotal = totalPostcards * 3;
+
+            const grandTotal = calTotal + postcardsTotal;
+
+            const summaryCalDesc = document.getElementById('summaryCalDesc');
+            const summaryCalPrice = document.getElementById('summaryCalPrice');
+            if (summaryCalDesc) summaryCalDesc.textContent = `${calQty}× Calendario 2027`;
+            if (summaryCalPrice) summaryCalPrice.textContent = `${calTotal},00 €`;
+
+            const summaryPostcardsRow = document.getElementById('summaryPostcardsRow');
+            const summaryPostcardsDesc = document.getElementById('summaryPostcardsDesc');
+            const summaryPostcardsPrice = document.getElementById('summaryPostcardsPrice');
+
+            if (totalPostcards > 0) {
+                if (summaryPostcardsRow) summaryPostcardsRow.style.display = 'flex';
+                if (summaryPostcardsDesc) summaryPostcardsDesc.textContent = `${totalPostcards}× ${totalPostcards === 1 ? 'Postal' : 'Postales'}`;
+                if (summaryPostcardsPrice) summaryPostcardsPrice.textContent = `${postcardsTotal},00 €`;
+            } else {
+                if (summaryPostcardsRow) summaryPostcardsRow.style.display = 'none';
+            }
+
+            const summaryTotalPrice = document.getElementById('summaryTotalPrice');
+            if (summaryTotalPrice) summaryTotalPrice.textContent = `${grandTotal},00 €`;
+        }
+
+        function finalizePurchase() {
+            const calQty = parseInt(document.getElementById('qty').value) || 1;
+            const lector = postcardCounts.lector;
+            const navidad = postcardCounts.navidad;
+            const cafecito = postcardCounts.cafecito;
+            const totalPostcards = lector + navidad + cafecito;
+            const grandTotal = (calQty * 24) + (totalPostcards * 3);
+
+            let message = '';
+            if (totalPostcards === 0) {
+                if (calQty === 1) {
+                    message = '¡Hola Lourdes! Me gustaría comprar un calendario (24 €).';
+                } else {
+                    message = `¡Hola Lourdes! Me gustaría comprar ${calQty} calendarios (${grandTotal} €).`;
+                }
+            } else {
+                let items = [];
+                items.push(`• ${calQty} ${calQty === 1 ? 'Calendario 2027' : 'Calendarios 2027'} (${calQty * 24} €)`);
+                if (lector > 0) items.push(`• ${lector} ${lector === 1 ? 'Postal Lector' : 'Postales Lector'} (${lector * 3} €)`);
+                if (navidad > 0) items.push(`• ${navidad} ${navidad === 1 ? 'Postal Navidad' : 'Postales Navidad'} (${navidad * 3} €)`);
+                if (cafecito > 0) items.push(`• ${cafecito} ${cafecito === 1 ? 'Postal Cafecito' : 'Postales Cafecito'} (${cafecito * 3} €)`);
+
+                message = `¡Hola Lourdes! Me gustaría hacer el siguiente pedido:
+
+${items.join('\n')}
+
+Total: ${grandTotal} €`;
+            }
+
             const encodedMessage = encodeURIComponent(message);
             const url = `https://wa.me/34603536305?text=${encodedMessage}`;
             window.open(url, '_blank');
+            closeUpsellModal();
         }
 
         function buyPostcard(name) {
-            const message = `¡Hola Lourdes! Me gustaría comprar la postal "${name}".`;
+            const message = `¡Hola Lourdes! Me gustaría comprar la postal "${name}" (3 €).`;
             const encodedMessage = encodeURIComponent(message);
             const url = `https://wa.me/34603536305?text=${encodedMessage}`;
             window.open(url, '_blank');
         }
+
+        function openLightbox(src, caption) {
+            const lb = document.getElementById('imageLightbox');
+            const img = document.getElementById('lightboxImg');
+            const cap = document.getElementById('lightboxCaption');
+            if (!lb || !img) return;
+
+            img.src = src;
+            img.alt = caption || 'Vista previa';
+            if (cap) cap.textContent = caption || '';
+
+            lb.classList.add('active');
+            lb.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeLightbox(event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            const lb = document.getElementById('imageLightbox');
+            if (!lb) return;
+            lb.classList.remove('active');
+            lb.setAttribute('aria-hidden', 'true');
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const lb = document.getElementById('imageLightbox');
+                if (lb && lb.classList.contains('active')) {
+                    closeLightbox();
+                } else {
+                    closeUpsellModal();
+                }
+            }
+        });
 
         // Carousel Logic
         const carousels = document.querySelectorAll('.carousel');

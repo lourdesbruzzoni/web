@@ -26,59 +26,60 @@
     
     <link rel="stylesheet" href="stylesheets/style.css?v=1.3">
     <style>
-        /* Top Announcement Bar / Cuenta Regresiva (Failsafe contra caché del navegador) */
+        /* Top Announcement Bar / Marquee Loop Continuo */
         .countdown-topbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            height: 38px;
             background-color: var(--color-terracota, #c6744f);
             color: #ffffff;
             font-family: 'Fjalla One', sans-serif;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             letter-spacing: 0.8px;
-            padding: 0.5rem 1rem;
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 0.6rem;
-            flex-wrap: wrap;
+            overflow: hidden;
             z-index: 1100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
+            white-space: nowrap;
+            user-select: none;
         }
-        .countdown-topbar .topbar-text {
+        .topbar-marquee-track {
+            display: inline-flex;
+            white-space: nowrap;
+            will-change: transform;
+            animation: topbar-marquee 32s linear infinite;
+        }
+        @keyframes topbar-marquee {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+        }
+        .marquee-item {
             display: inline-flex;
             align-items: center;
-            gap: 0.35rem;
+            gap: 0.65rem;
+            padding: 0 1.25rem;
         }
         .countdown-topbar .topbar-digits {
-            background: rgba(0, 0, 0, 0.15);
-            padding: 0.2rem 0.65rem;
-            border-radius: 5px;
-            letter-spacing: 1.5px;
+            background: rgba(0, 0, 0, 0.18);
+            padding: 0.12rem 0.55rem;
+            border-radius: 4px;
+            letter-spacing: 1.2px;
             font-variant-numeric: tabular-nums;
             border: 1px solid rgba(255, 255, 255, 0.25);
+            font-size: 0.85rem;
             display: inline-block;
         }
-        .countdown-topbar .topbar-btn-launch {
-            background: var(--color-amarillo, #dcb239);
-            color: #1a1a1a;
-            padding: 0.2rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+        .marquee-sep {
+            opacity: 0.5;
+            font-size: 0.75rem;
             margin-left: 0.4rem;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .countdown-topbar .topbar-btn-launch:hover {
-            transform: translateY(-1px);
-            opacity: 0.95;
         }
         body.has-topbar .navbar {
             top: 38px;
@@ -87,13 +88,18 @@
         @media (max-width: 768px) {
             .countdown-topbar {
                 font-size: 0.82rem;
-                padding: 0.45rem 0.75rem;
-                gap: 0.4rem;
+                height: 36px;
+            }
+            body.has-topbar .navbar {
+                top: 36px;
             }
             .countdown-topbar .topbar-digits {
-                padding: 0.15rem 0.5rem;
-                letter-spacing: 1px;
-                font-size: 0.85rem;
+                padding: 0.1rem 0.45rem;
+                font-size: 0.8rem;
+            }
+            .marquee-item {
+                padding: 0 0.9rem;
+                gap: 0.5rem;
             }
         }
     </style>
@@ -136,7 +142,11 @@
           "offers": {
             "@type": "Offer",
             "url": "https://lourdesbruzzoni.com/compra.html",
-            "availability": "https://schema.org/PreOrder"
+            "priceCurrency": "EUR",
+            "price": "24.00",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition"
           }
         }
       ]
@@ -146,15 +156,13 @@
 <body class="has-topbar">
     <!-- Barra Superior de Cuenta Regresiva -->
     <aside class="countdown-topbar" id="topbarCountdown" aria-label="Aviso de lanzamiento">
-        <span class="topbar-text" id="tbMessage">✨ LANZAMIENTO OFICIAL: 11/11 —</span>
-        <span class="topbar-digits" id="tbDigits">--d --h --m --s</span>
+        <div class="topbar-marquee-track" id="topbarTrack"></div>
     </aside>
     <!-- Navbar -->
     <header class="navbar" id="navbar">
         <a href="index.html" class="nav-brand">Lourdes Bruzzoni</a>
         <nav class="nav-links">
 
-            <a href="compra.html" class="nav-link">Tienda</a>
             <a href="origenes.html" class="nav-link">Historia</a>
             <a href="sobre_mi.html" class="nav-link">Sobre mí</a>
             <a href="https://www.instagram.com/loubruzzoni" target="_blank" rel="noopener noreferrer" class="nav-social" aria-label="Instagram @loubruzzoni" title="Instagram">
@@ -169,8 +177,11 @@
 
     <!-- Floating Button (Hidden by default) -->
     <div class="floating-container floating-btn" id="floatingBtn">
-        
-        <button class="cta-button" onclick="window.location.href='compra.html'">Lo quiero</button>
+        <div class="cta-dropdown dropdown-up">
+            <a href="https://www.grafica21.com/productos/calendario-2027-lourdes-bruzzoni-1cnec/?entry_path=category" target="_blank" rel="noopener noreferrer">Estoy en Argentina</a>
+            <a href="compra.html">Estoy en España</a>
+        </div>
+        <button class="cta-button" onclick="toggleDropdown(event, this)">Lo quiero</button>
     </div>
 
     <main class="main-content">
@@ -181,8 +192,11 @@
                 <h1>CALENDARIO 2027</h1>
                 <p>Un año pintado a mano</p>
                 <div class="cta-wrapper">
-                    <button class="cta-button" onclick="window.location.href='compra.html'">Lo quiero</button>
-                    
+                    <button class="cta-button" onclick="toggleDropdown(event, this)">Lo quiero</button>
+                    <div class="cta-dropdown">
+                        <a href="https://www.grafica21.com/productos/calendario-2027-lourdes-bruzzoni-1cnec/?entry_path=category" target="_blank" rel="noopener noreferrer">Estoy en Argentina</a>
+                        <a href="compra.html">Estoy en España</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -210,8 +224,11 @@
                 <div class="closing-content-right">
                     <h2>¿Querés el tuyo?</h2>
                     <div class="cta-wrapper">
-                        <button class="cta-button" onclick="window.location.href='compra.html'">Lo quiero</button>
-                        
+                        <button class="cta-button" onclick="toggleDropdown(event, this)">Lo quiero</button>
+                        <div class="cta-dropdown">
+                            <a href="https://www.grafica21.com/productos/calendario-2027-lourdes-bruzzoni-1cnec/?entry_path=category" target="_blank" rel="noopener noreferrer">Estoy en Argentina</a>
+                            <a href="compra.html">Estoy en España</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -244,15 +261,25 @@
         const LAUNCH_DATE_OBJ = new Date('2026-11-11T12:00:00+01:00');
         const LAUNCH_TIMESTAMP = LAUNCH_DATE_OBJ.getTime();
 
-        // Calcular hora ajustada a la zona horaria del visitante
         const launchDay = String(LAUNCH_DATE_OBJ.getDate()).padStart(2, '0');
         const launchMonth = String(LAUNCH_DATE_OBJ.getMonth() + 1).padStart(2, '0');
         const launchHour = LAUNCH_DATE_OBJ.getHours();
         const launchMinutes = LAUNCH_DATE_OBJ.getMinutes();
-        const launchHourStr = launchMinutes > 0 
-            ? `${launchHour}:${String(launchMinutes).padStart(2, '0')}h` 
-            : `${launchHour}h`;
+        const launchHourStr = `${launchHour}:${String(launchMinutes).padStart(2, '0')} hs`;
         const launchMessageText = `✨ LANZAMIENTO OFICIAL: ${launchDay}/${launchMonth} ${launchHourStr} —`;
+
+        const marqueeTrack = document.getElementById('topbarTrack');
+        let isLaunched = false;
+
+        function buildMarqueeContent(digitsText) {
+            if (!marqueeTrack) return;
+            const singleItem = isLaunched
+                ? `<span class="marquee-item"><span>🎉 ¡EL CALENDARIO 2027 YA ESTÁ DISPONIBLE!</span><span class="marquee-sep">✦</span></span>`
+                : `<span class="marquee-item"><span>${launchMessageText}</span><span class="topbar-digits">${digitsText}</span><span class="marquee-sep">✦</span></span>`;
+            
+            const half = singleItem.repeat(6);
+            marqueeTrack.innerHTML = half + half;
+        }
 
         function syncNavbarWithTopbar() {
             const topbar = document.getElementById('topbarCountdown');
@@ -266,20 +293,13 @@
             const now = Date.now();
             const diff = LAUNCH_TIMESTAMP - now;
 
-            const tbDigits = document.getElementById('tbDigits');
-            const tbMessage = document.getElementById('tbMessage');
-
             if (diff <= 0) {
-                tbMessage.innerHTML = '🎉 ¡EL CALENDARIO 2027 YA ESTÁ DISPONIBLE!';
-                tbDigits.innerHTML = '<a href="compra.html" class="topbar-btn-launch">VER TIENDA</a>';
-                tbDigits.style.background = 'transparent';
-                tbDigits.style.border = 'none';
-                syncNavbarWithTopbar();
+                if (!isLaunched) {
+                    isLaunched = true;
+                    buildMarqueeContent('');
+                    syncNavbarWithTopbar();
+                }
                 return;
-            }
-
-            if (tbMessage.textContent !== launchMessageText) {
-                tbMessage.textContent = launchMessageText;
             }
 
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -291,8 +311,18 @@
             const sHours = String(hours).padStart(2, '0');
             const sMinutes = String(minutes).padStart(2, '0');
             const sSeconds = String(seconds).padStart(2, '0');
+            const digitsStr = `${sDays}d ${sHours}h ${sMinutes}m ${sSeconds}s`;
 
-            tbDigits.textContent = `${sDays}d ${sHours}h ${sMinutes}m ${sSeconds}s`;
+            if (!marqueeTrack) return;
+            const digitElements = marqueeTrack.querySelectorAll('.topbar-digits');
+            if (digitElements.length === 0) {
+                buildMarqueeContent(digitsStr);
+                syncNavbarWithTopbar();
+            } else {
+                digitElements.forEach(el => {
+                    el.textContent = digitsStr;
+                });
+            }
         }
 
         updateCountdown();
@@ -320,28 +350,32 @@
                 floatingBtn.classList.add('visible');
             } else {
                 floatingBtn.classList.remove('visible');
-                floatingBtn.querySelector('.cta-dropdown').classList.remove('show');
+                const drop = floatingBtn.querySelector('.cta-dropdown');
+                if (drop) drop.classList.remove('show');
             }
         });
 
         // Dropdown toggle logic
         function toggleDropdown(event, button) {
             event.stopPropagation();
-            document.querySelectorAll('.cta-dropdown.show').forEach(dropdown => {
-                if (dropdown !== button.nextElementSibling && dropdown !== button.previousElementSibling) {
-                    dropdown.classList.remove('show');
+            const wrapper = button.closest('.cta-wrapper, .floating-container');
+            const dropdown = wrapper ? wrapper.querySelector('.cta-dropdown') : null;
+
+            document.querySelectorAll('.cta-dropdown.show').forEach(d => {
+                if (d !== dropdown) {
+                    d.classList.remove('show');
                 }
             });
 
-            const wrapper = button.parentElement;
-            const dropdown = wrapper.querySelector('.cta-dropdown');
-            dropdown.classList.toggle('show');
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+            }
         }
 
         // Close dropdowns when clicking outside
         window.addEventListener('click', (event) => {
-            if (!event.target.matches('.cta-button')) {
-                document.querySelectorAll('.cta-dropdown').forEach(dropdown => {
+            if (!event.target.closest('.cta-wrapper') && !event.target.closest('.floating-container')) {
+                document.querySelectorAll('.cta-dropdown.show').forEach(dropdown => {
                     dropdown.classList.remove('show');
                 });
             }

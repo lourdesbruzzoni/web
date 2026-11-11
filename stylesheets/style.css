@@ -473,6 +473,11 @@ body.has-topbar .navbar {
 }
 
 /* Floating Button */
+.floating-container {
+    position: relative;
+    display: inline-block;
+}
+
 .floating-btn {
     position: fixed;
     bottom: 2rem;
@@ -482,6 +487,17 @@ body.has-topbar .navbar {
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-btn .cta-dropdown.dropdown-up {
+    left: auto;
+    right: 0;
+    transform: translateY(-10px);
+    margin-bottom: 0.75rem;
+}
+
+.floating-btn .cta-dropdown.dropdown-up.show {
+    transform: translateY(0);
 }
 
 .floating-btn.visible {

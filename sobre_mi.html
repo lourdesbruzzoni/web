@@ -62,7 +62,6 @@
         <a href="index.html" class="nav-brand">Lourdes Bruzzoni</a>
         <nav class="nav-links">
 
-            <a href="compra.html" class="nav-link">Tienda</a>
             <a href="origenes.html" class="nav-link">Historia</a>
             <a href="sobre_mi.html" class="nav-link">Sobre mí</a>
             <a href="https://www.instagram.com/loubruzzoni" target="_blank" rel="noopener noreferrer" class="nav-social" aria-label="Instagram @loubruzzoni" title="Instagram">
@@ -93,8 +92,11 @@
                 <div class="closing-content-right">
                     <h2>¿Querés el tuyo?</h2>
                     <div class="cta-wrapper">
-                        <button class="cta-button" onclick="window.location.href='compra.html'">Lo quiero</button>
-                        
+                        <button class="cta-button" onclick="toggleDropdown(event, this)">Lo quiero</button>
+                        <div class="cta-dropdown">
+                            <a href="https://www.grafica21.com/productos/calendario-2027-lourdes-bruzzoni-1cnec/?entry_path=category" target="_blank" rel="noopener noreferrer">Estoy en Argentina</a>
+                            <a href="compra.html">Estoy en España</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,21 +127,24 @@
         // Dropdown toggle logic
         function toggleDropdown(event, button) {
             event.stopPropagation();
-            document.querySelectorAll('.cta-dropdown.show').forEach(dropdown => {
-                if (dropdown !== button.nextElementSibling && dropdown !== button.previousElementSibling) {
-                    dropdown.classList.remove('show');
+            const wrapper = button.closest('.cta-wrapper');
+            const dropdown = wrapper ? wrapper.querySelector('.cta-dropdown') : null;
+
+            document.querySelectorAll('.cta-dropdown.show').forEach(d => {
+                if (d !== dropdown) {
+                    d.classList.remove('show');
                 }
             });
 
-            const wrapper = button.parentElement;
-            const dropdown = wrapper.querySelector('.cta-dropdown');
-            dropdown.classList.toggle('show');
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+            }
         }
 
         // Close dropdowns when clicking outside
         window.addEventListener('click', (event) => {
-            if (!event.target.matches('.cta-button')) {
-                document.querySelectorAll('.cta-dropdown').forEach(dropdown => {
+            if (!event.target.closest('.cta-wrapper')) {
+                document.querySelectorAll('.cta-dropdown.show').forEach(dropdown => {
                     dropdown.classList.remove('show');
                 });
             }
